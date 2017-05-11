@@ -1,2 +1,16 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
+
+body {
+  font-family: sans-serif;
+  font-size: 28px;
+}
+
+h1 p {
+  font-family: cursive;
+}
+
+#button {
+  opacity: 0.7;
+  color: purple;
+}
