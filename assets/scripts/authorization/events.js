@@ -5,8 +5,9 @@ const ui = require('./ui')
 const getFormFields = require(`../../../lib/get-form-fields`)
 
 const onSignUp = function (event) {
-  const data = getFormFields(this)
   event.preventDefault()
+  console.log(event)
+  const data = getFormFields(this)
   api.signUp(data)
     .then(() => {
       ui.signUpSuccess
