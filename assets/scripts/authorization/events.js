@@ -6,23 +6,18 @@ const getFormFields = require(`../../../lib/get-form-fields`)
 
 const onSignUp = function (event) {
   event.preventDefault()
-  console.log(event)
-  const data = getFormFields(this)
+  const data = getFormFields(event.target)
   api.signUp(data)
     .then(() => {
-      ui.signUpSuccess
-      return data
-    })
-    .then(api.signIn)
-    .then(() => {
-      ui.signInSuccess
+      api.signIn(data)
+      .then(ui.signInSuccess)
       .catch(ui.signInFailure)
     })
     .catch(ui.signUpFailure)
 }
 
 const onSignIn = function (event) {
-  const data = getFormFields(this)
+  const data = getFormFields(event.target)
   event.preventDefault()
   api.signIn(data)
     .then(ui.signInSuccess)
