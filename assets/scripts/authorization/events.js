@@ -14,7 +14,7 @@ const onSignUp = function (event) {
     })
     .then(api.signIn)
     .then(() => {
-      .then(ui.signInSuccess)
+      ui.signInSuccess
       .catch(ui.signInFailure)
     })
     .catch(ui.signUpFailure)
