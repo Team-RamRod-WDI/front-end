@@ -3,10 +3,12 @@
 const setAPIOrigin = require('../../lib/set-api-origin')
 const config = require('./config')
 const authEvents = require('./authorization/events.js')
+const postEvents = require('./posts/events.js')
 
 $(() => {
   setAPIOrigin(location, config)
   authEvents.addHandlers()
+  postEvents.addHandlers()
 })
 
 // use require with a reference to bundle the file and use it in this file
