@@ -38,7 +38,7 @@ const updatePost = function (data) {
 const deletePost = function (data) {
   return $.ajax({
     method: 'DELETE',
-    url: config.apiOrigin + '/posts' + data.posts.id,
+    url: config.apiOrigin + '/posts/' + data,
     headers: {
       Authorization: 'Token token=' + store.user.token
     },
