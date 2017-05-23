@@ -14,7 +14,7 @@ const onGetAllPages = (event) => {
 
 const onGetAllUserPages = (event) => {
   event.preventDefault()
-  api.getUserPages()
+  api.getAllUserPages()
     .then(ui.getAllUserPagesSuccess)
     .catch(ui.getAllUserPagesFailure)
 }

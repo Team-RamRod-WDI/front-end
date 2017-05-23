@@ -25,7 +25,7 @@ const newUserPage = (data) => {
 }
 
 // THIS NEEDS TO GET A USER ID
-const getAllUserPages = (userId) => {
+const getAllUserPages = () => {
   return $.ajax({
     url: config.apiOrigin + '/pages/',
     method: 'GET',
