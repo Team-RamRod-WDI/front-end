@@ -1,5 +1,7 @@
 'use strict'
 
+const layout = require('../layout.js')
+
 const createPostSuccess = (response) => {
   console.log('created post and response is:', response)
 }
@@ -10,6 +12,7 @@ const createPostFailure = (error) => {
 
 const getPostsSuccess = (response) => {
   console.log('gets post and response is:', response)
+  layout.loadPosts(response)
 }
 
 const getPostsFailure = (error) => {

@@ -7,6 +7,7 @@ const getFormFields = require(`../../../lib/get-form-fields`)
 const onCreatePost = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
+  console.log(data)
   api.createPost(data)
     .then(ui.createPostSuccess)
     .catch(ui.createPostFailure)
@@ -29,17 +30,23 @@ const onUpdatePost = function (event) {
 
 const onDeletePost = function (event) {
   event.preventDefault()
-  const data = getFormFields(event.target)
+  const data = this.dataset.id
   api.deletePost(data)
     .then(ui.deletePostSuccess)
-    .catch(ui.deletePostFailure)
+      .then(() => {
+        api.getPosts()
+        .then(ui.getPostsSuccess)
+        .catch(ui.getPostsFailure)
+      })
+      .catch(ui.deletePostFailure)
 }
 
 const addHandlers = () => {
   $('#create-post').on('submit', onCreatePost)
-  $('#get-posts').on('submit', onGetPosts)
+  $('#get-posts').on('click', onGetPosts)
   $('#update-post').on('submit', onUpdatePost)
-  $('#delete-post').on('submit', onDeletePost)
+  $(document).on('click', '.delete-post', onDeletePost)
+  $(document).on('click', '.edit-post', onUpdatePost)
 }
 
 module.exports = {

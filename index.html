@@ -60,7 +60,6 @@
 
     <!-- <button class="btn-lg" id="get-pages"></button> -->
     <div id="app"></div>
-
     <div id="create-new-page-forms-id" class="signed-in-view col-xs-8">
 
         <div class="create-new-page-forms-header">
@@ -122,9 +121,18 @@
               <button id="delete-post" type="submit" class="btn btn-danger submit-button-class">Delete</button>
             </div>
         </form>
+    <form id="create-post">
+      <fieldset>
+        <legend>Create Post</legend>
+        <input type="text" name="post[title]" placeholder="Post title">
+        <input type="text" name="post[content]" placeholder="content">
+        <br>
+        <br>
+        <input class="btn btn-default" type="submit" name="submit" value="create">
+      </fieldset>
+    </form>
 
-      </div>
-    </div>
+    <button class="btn-lg" id="get-posts"></button>
 
     </body>
 </html>
