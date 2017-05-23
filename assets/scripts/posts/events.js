@@ -36,7 +36,10 @@ const onDeletePost = function (event) {
 }
 
 const addHandlers = () => {
-
+  $('#create-post').on('submit', onCreatePost)
+  $('#get-posts').on('submit', onGetPosts)
+  $('#update-post').on('submit', onUpdatePost)
+  $('#delete-post').on('submit', onDeletePost)
 }
 
 module.exports = {
