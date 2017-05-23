@@ -9,10 +9,11 @@
       <article class="card animated fadeInLeft">
         <div class="card-block">
           <h4 class="card-title">{{posts.title}}</h4>
+          <input class="edit-post" placeholder="{{posts.title}}" type="hidden"></input>
           <h6 class="text-muted">{{posts.owner}}</h6>
           <p class="card-text">{{posts.content}}</p>
-          <button id="update-post" data-id="{{posts._id}}"><a href="#" class="btn btn-primary" type="submit">Edit</a></input>
-          <button id="delete-post" data-id="{{posts._id}}"><a data-id="{{posts._id}}" href="#" class="delete-post btn btn-primary" type="submit">Delete</a></input>
+          <a id="update-post" data-id="{{posts._id}}" href="#" class="btn btn-primary" type="submit">Edit</a>
+          <a id="delete-post" data-id="{{posts._id}}" data-id="{{posts._id}}" href="#" class="delete-post btn btn-primary" type="submit">Delete</a>
         </div>
       </article><!-- .end Card -->
     </div>

@@ -40,19 +40,11 @@ const onSignOut = function (event) {
   .catch(ui.signOutFailure)
 }
 
-const onGetPages = function (event) {
-  event.preventDefault()
-  api.getPages()
-  .then(ui.getPagesSuccess)
-  .catch(ui.getPagesFailure)
-}
-
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
   $('#change-password').on('submit', onChangePassword)
   $('#sign-out').on('submit', onSignOut)
-  $('#get-pages').on('click', onGetPages)
 }
 
 module.exports = {
