@@ -40,20 +40,9 @@ const changePassword = function (data) {
   })
 }
 
-const getPages = function (data) {
-  return $.ajax({
-    url: config.apiOrigin + '/pages/',
-    method: 'GET',
-    headers: {
-      'Authorization': 'Token token=' + store.user.token
-    }
-  })
-}
-
 module.exports = {
   signUp,
   signIn,
   signOut,
-  changePassword,
-  getPages
+  changePassword
 }

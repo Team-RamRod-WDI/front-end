@@ -37,11 +37,6 @@ const signOutFailure = () => {
 
 }
 
-const getPagesSuccess = (response) => {
-  console.log(response)
-  layout.loadPages(response)
-}
-
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -50,6 +45,5 @@ module.exports = {
   changePasswordSuccess,
   changePasswordFailure,
   signOutSuccess,
-  signOutFailure,
-  getPagesSuccess
+  signOutFailure
 }
