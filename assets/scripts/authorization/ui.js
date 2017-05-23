@@ -1,6 +1,7 @@
 'use strict'
 
 const store = require('../store.js')
+const layout = require('../layout.js')
 
 const signUpSuccess = (data) => {
   console.log(data)
@@ -13,6 +14,7 @@ const signUpFailure = () => {
 const signInSuccess = (data) => {
   store.user = data.user
   console.log(data)
+  $('#get-pages').css({'display': 'block'})
 }
 
 const signInFailure = () => {
@@ -34,6 +36,11 @@ const signOutFailure = () => {
 
 }
 
+const getPagesSuccess = (response) => {
+  console.log(response)
+  layout.loadPages(response)
+}
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -42,5 +49,6 @@ module.exports = {
   changePasswordSuccess,
   changePasswordFailure,
   signOutSuccess,
-  signOutFailure
+  signOutFailure,
+  getPagesSuccess
 }

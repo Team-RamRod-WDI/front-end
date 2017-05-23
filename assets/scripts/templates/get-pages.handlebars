@@ -1,0 +1,7 @@
+<h3 class="get-pages-block">Pages</h3>
+<ul id="myUL">
+  {{#each pages as |pages|}}
+  <li class="pages" data-title="{{pages.title}}" data-name="{{pages.description}}"
+  data-length={{pages.length}}><a href="http://localhost:4741/pages/{{pages.id}}">{{pages.title}}</a></li>
+  {{/each}}
+</ul>
