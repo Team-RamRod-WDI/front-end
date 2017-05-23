@@ -46,6 +46,7 @@ const addHandlers = () => {
   $('#get-posts').on('click', onGetPosts)
   $('#update-post').on('submit', onUpdatePost)
   $(document).on('click', '.delete-post', onDeletePost)
+  $(document).on('click', '.edit-post', onUpdatePost)
 }
 
 module.exports = {
