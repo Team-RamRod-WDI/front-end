@@ -7,7 +7,7 @@ const loadPages = (response) => {
 }
 
 const loadUserPages = () => {
-  const userPageTemplate = require('./templates/get-pages.handlebars')
+  const userPageTemplate = require('./templates/userPagesView.handlebars')
   const content = userPageTemplate({ pages: store.userPages })
   $('#app').empty()
   $('#app').append(content)

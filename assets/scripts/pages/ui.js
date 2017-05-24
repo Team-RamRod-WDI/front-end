@@ -1,6 +1,6 @@
 const layout = require('../layout.js')
 const api = require('./api.js')
-const showPagesTemplate = require('../templates/get-pages.handlebars')
+const showPagesTemplate = require('../templates/allPagesView.handlebars')
 const store = require('../store.js')
 const getFormFields = require(`../../../lib/get-form-fields`)
 
