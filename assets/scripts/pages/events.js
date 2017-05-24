@@ -1,7 +1,7 @@
 'use strict'
 
 const getFormFields = require(`../../../lib/get-form-fields`)
-
+const store = require('../store.js')
 const api = require('./api')
 const ui = require('./ui.js')
 
@@ -60,14 +60,10 @@ const onShowCreatePageForms = (event) => {
 //   })
 
 const addHandlers = () => {
-  // $('#create-new-page-forms-submit').on('click', onNewUserPage)
   $('#all-pages-button').on('click', onGetAllPages)
   $('#my-pages-button').on('click', onGetAllUserPages)
-  $(document).on('submit', '#create-new-page-forms-submit', onNewUserPage)
-
   $('#show-create-page-forms').on('click', onShowCreatePageForms)
-  // $('#show-create-post-forms').on('click', onGetAllPages)
-
+  $(document).on('submit', '#create-new-page-forms-submit', onNewUserPage)
   // $('#go-home-button').on('click', onGoHome)
 }
 

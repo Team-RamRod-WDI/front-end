@@ -2,12 +2,14 @@
 
 const api = require('./api')
 const ui = require('./ui')
-const getFormFields = require(`../../../lib/get-form-fields`)
+const getFormFields = require('../../../lib/get-form-fields')
+const store = require('../store.js')
+const createPostFieldsView = require('../templates/createPostFields.handlebars')
 
 const onCreatePost = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
-  console.log(data)
+  console.log('post object is: ', data)
   api.createPost(data)
     .then(ui.createPostSuccess)
     .catch(ui.createPostFailure)
@@ -41,12 +43,29 @@ const onDeletePost = function (event) {
       .catch(ui.deletePostFailure)
 }
 
+const onShowCreatePostForms = (event) => {
+  event.preventDefault()
+  const createPostFieldsHTML = createPostFieldsView()
+  $('#app').empty()
+  $('#app').append(createPostFieldsHTML)
+  console.log('currentPageId is: ', store.currentPageId)
+  $('#post-parent-page-input-id').val(store.currentPageId)
+}
+
+// const onShowCreatePageForms = (event) => {
+//   event.preventDefault()
+//   const createPageFieldsHTML = createPageFieldsView()
+//   $('#app').empty()
+//   $('#app').append(createPageFieldsHTML)
+
 const addHandlers = () => {
-  $('#create-new-post-forms-submit').on('submit', onCreatePost)
+  $(document).on('submit', '#create-new-post-forms-submit', onCreatePost)
+
   $('#get-posts').on('click', onGetPosts)
   $('#update-post').on('submit', onUpdatePost)
   $(document).on('click', '.delete-post', onDeletePost)
   $(document).on('click', '.edit-post', onUpdatePost)
+  $(document).on('click', '.view-create-page-fields-button', onShowCreatePostForms)
 }
 
 module.exports = {
