@@ -41,8 +41,7 @@ const deletePost = function (data) {
     url: config.apiOrigin + '/posts/' + data,
     headers: {
       Authorization: 'Token token=' + store.user.token
-    },
-    data
+    }
   })
 }
 
