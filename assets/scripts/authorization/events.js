@@ -40,11 +40,33 @@ const onSignOut = function (event) {
   .catch(ui.signOutFailure)
 }
 
+// [SHOW MODALS] SECTION | [SHOW MODALS] SECTION | [SHOW MODALS] SECTION
+// [SHOW MODALS] SECTION | [SHOW MODALS] SECTION | [SHOW MODALS] SECTION
+const onShowSignUpModal = function (event) {
+  event.preventDefault()
+  $('#sign-up-modal').modal('show')
+}
+
+const onShowSignInModal = function (event) {
+  event.preventDefault()
+  $('#sign-in-modal').modal('show')
+}
+
+const onShowChangePasswordModal = function (event) {
+  event.preventDefault()
+  $('#change-password-modal').modal('show')
+}
+
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
   $('#change-password').on('submit', onChangePassword)
   $('#sign-out').on('submit', onSignOut)
+
+  $('#sign-up-show-modal-button').on('click', onShowSignUpModal)
+  $('#sign-in-show-modal-button').on('click', onShowSignInModal)
+  $('#change-password-show-modal-button').on('click', onShowChangePasswordModal)
+  $('#sign-out-button').on('click', onSignOut)
 }
 
 module.exports = {
