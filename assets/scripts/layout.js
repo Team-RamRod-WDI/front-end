@@ -13,7 +13,7 @@ const loadUserPages = () => {
   $('#app').append(content)
 }
 
-const loadPosts = (response) => {
+const loadPagePosts = (response) => {
   const pageTemplate = require('./templates/get-posts.handlebars')
   const content = pageTemplate({ posts: response.posts })
   $('#app').html(content)
@@ -21,6 +21,6 @@ const loadPosts = (response) => {
 
 module.exports = {
   loadPages,
-  loadPosts,
+  loadPagePosts,
   loadUserPages
 }

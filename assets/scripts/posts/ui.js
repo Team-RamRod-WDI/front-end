@@ -12,7 +12,7 @@ const createPostFailure = (error) => {
 
 const getPostsSuccess = (response) => {
   console.log('gets post and response is:', response)
-  layout.loadPosts(response)
+  layout.loadPagePosts(response)
 }
 
 const getPostsFailure = (error) => {
