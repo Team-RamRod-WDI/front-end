@@ -26,7 +26,7 @@ const getPosts = function () {
 
 const updatePost = function (data) {
   return $.ajax({
-    url: config.apiOrigin + '/posts' + data.posts.id,
+    url: config.apiOrigin + '/posts/' + data.post.id,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token
