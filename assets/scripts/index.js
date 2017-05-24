@@ -7,6 +7,9 @@ const authEvents = require('./authorization/events.js')
 const pageEvents = require('./pages/events.js')
 const postEvents = require('./posts/events.js')
 
+$('.signed-in-view').hide()
+$('.signed-out-view').show()
+
 $(() => {
   setAPIOrigin(location, config)
   authEvents.addHandlers()

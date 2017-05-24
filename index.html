@@ -11,9 +11,54 @@
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
+
     <body class="container-fluid">
 
-      <form id="sign-up">
+
+<!-- [NAV BAR] SECTION | [NAV BAR] SECTION | [NAV BAR] SECTION | [NAV BAR] SECTION | -->
+<!-- [NAV BAR] SECTION | [NAV BAR] SECTION | [NAV BAR] SECTION | [NAV BAR] SECTION | -->
+
+      <nav class="navbar navbar-static-top navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a id="go-home-button" class="navbar-brand" href="#">RAMROD CMS</a>
+          </div>
+          <ul class="nav navbar-nav navbar-left">
+            <li id="all-pages-button" class="signed-in-view"><a href="#">All Pages</a></li>
+            <li id="my-pages-button" class="signed-in-view"><a href="#">My Pages</a></li>
+            <li id="show-create-page-forms" class="signed-in-view"><a href="#">+ Page</a></li>
+            <li id="show-create-post-forms" class="signed-in-view"><a href="#">+ Post</a></li>
+
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+            <li id="sign-up-show-modal-button" class="signed-out-view"><a href="#">Sign Up</a></li>
+            <li id="sign-in-show-modal-button" class="signed-out-view"><a href="#">Sign In</a></li>
+            <li id="change-password-show-modal-button" class="signed-in-view"><a href="#">Change Password</a></li>
+            <li id="sign-out-button" class="signed-in-view"><a href="#">Sign Out</a></li>
+          </ul>
+        </div>
+      </nav>
+
+      <div class="container welcome-landing-jumbotron signed-out-view">
+        <div class="jumbotron">
+            <h1>Welcome to Ramrod CMS</h1>
+            <p>Content Management Specialists</p>
+        </div>
+      </div>
+
+
+
+
+<!-- AUTH SECTION | AUTH SECTION |AUTH SECTION |AUTH SECTION |AUTH SECTION | -->
+<!-- AUTH SECTION | AUTH SECTION |AUTH SECTION |AUTH SECTION |AUTH SECTION | -->
+<!-- AUTH SECTION | AUTH SECTION |AUTH SECTION |AUTH SECTION |AUTH SECTION | -->
+<!-- AUTH SECTION | AUTH SECTION |AUTH SECTION |AUTH SECTION |AUTH SECTION | -->
+<!-- AUTH SECTION | AUTH SECTION |AUTH SECTION |AUTH SECTION |AUTH SECTION | -->
+
+<!--
+<div id="sign-up-modal">
+  <form id="sign-up">
     <fieldset>
       <legend>Create Account</legend>
       <input type="text" name="credentials[email]" value="" placeholder="user name">
@@ -23,8 +68,10 @@
       <br>
       <input id="hideSignUp" class="btn btn-default" type="submit" name="submit" value="Create Account!">
     </fieldset>
-
   </form>
+</div>
+
+<div id="sign-in-modal">
   <form id="sign-in">
     <fieldset>
       <legend>Sign in</legend>
@@ -40,27 +87,49 @@
       <input class="btn btn-default" type="submit" name="submit" value="Sign out!">
     </fieldset>
     <br>
-</form>
+  </form>
+</div>
 
-<form id="change-password">
-      <fieldset>
-        <legend>Change Password</legend>
-        <input type="password" name="passwords[old]" value="" placeholder="Old Password">
-        <input type="password" name="passwords[new]" value="" placeholder="New Password">
-        <p id="validate-status"></p>
-        <input class="btn btn-default" type="submit" name="submit" value="Change It">
-      </fieldset>
-    </form>
+<div id="change-password-modal">
+  <form id="change-password">
+    <fieldset>
+      <legend>Change Password</legend>
+      <input type="password" name="passwords[old]" value="" placeholder="Old Password">
+      <input type="password" name="passwords[new]" value="" placeholder="New Password">
+      <p id="validate-status"></p>
+      <input class="btn btn-default" type="submit" name="submit" value="Change It">
+    </fieldset>
+  </form>
+</div> -->
 
-        <div class="form-group create-new-post-buttons-div">
-          <button id="get-all-pages-button"class="btn btn-default">Get All Pages</button>
-          <button id="get-all-user-pages-button"class="btn btn-default">Get All User Pages</button>
-          <!-- <button id="get-single-user-page-button"class="btn btn-default">Get Single User Page</button> -->
-        </div>
 
-    <!-- <button class="btn-lg" id="get-pages"></button> -->
+
+
+
+<!-- [CREATE] FORMS | [CREATE] FORMS | [CREATE] FORMS | [CREATE] FORMS | [CREATE] FORMS |  -->
+<!-- [CREATE] FORMS | [CREATE] FORMS | [CREATE] FORMS | [CREATE] FORMS | [CREATE] FORMS | -->
+
+<!--
+  <div class="form-group create-new-post-buttons-div">
+    <button id="get-all-pages-button"class="btn btn-default">Get All Pages</button>
+    <button id="get-all-user-pages-button"class="btn btn-default">Get All User Pages</button>
+    <!- <button id="get-single-user-page-button"class="btn btn-default">Get Single User Page</button> -->
+  <!-- </div> -->
+
+
+
+<!-- CONTENT GETS INSERTED HERE! CONTENT GETS INSERTED HERE! CONTENT GETS INSERTED HERE! -->
+<!-- CONTENT GETS INSERTED HERE! CONTENT GETS INSERTED HERE! CONTENT GETS INSERTED HERE! -->
+<!-- CONTENT GETS INSERTED HERE! CONTENT GETS INSERTED HERE! CONTENT GETS INSERTED HERE! -->
+<!-- CONTENT GETS INSERTED HERE! CONTENT GETS INSERTED HERE! CONTENT GETS INSERTED HERE! -->
+<!-- CONTENT GETS INSERTED HERE! CONTENT GETS INSERTED HERE! CONTENT GETS INSERTED HERE! -->
     <div id="app"></div>
-    <div id="create-new-page-forms-id" class="signed-in-view col-xs-8">
+
+
+
+
+
+    <!-- <div id="create-new-page-forms-id" class="signed-in-view col-xs-8">
 
         <div class="create-new-page-forms-header">
           <h2>Create New Page</h2>
@@ -88,9 +157,9 @@
         </form>
 
       </div>
-    </div>
+    </div> -->
 
-    <div id="create-new-post-forms-id" class="signed-in-view col-xs-8">
+    <!-- <div id="create-new-post-forms-id" class="signed-in-view col-xs-8">
 
         <div class="create-new-post-forms-header">
           <h2>Create New Post</h2>
@@ -117,7 +186,8 @@
               <button id="create-post" type="submit" class="btn btn-success submit-button-class">Create</button>
               <button id="get-posts" type="submit" class="btn btn-warning submit-button-class">Show</button>
             </div>
-        </form>
+
+        </form> -->
     <!-- <form id="create-post">
       <fieldset>
         <legend>Create Post</legend>
@@ -127,6 +197,138 @@
         <br>
         <input class="btn btn-default" type="submit" name="submit" value="create">
       </fieldset>
-    </form> -->
+
+    </form>
+
+    <button class="btn-lg" id="get-posts"></button> -->
+
+<!-- AUTH MODALS | AUTH MODALS | AUTH MODALS | AUTH MODALS | AUTH MODALS | AUTH MODALS | -->
+<!-- AUTH MODALS | AUTH MODALS | AUTH MODALS | AUTH MODALS | AUTH MODALS | AUTH MODALS | -->
+<!-- AUTH MODALS | AUTH MODALS | AUTH MODALS | AUTH MODALS | AUTH MODALS | AUTH MODALS | -->
+<!-- AUTH MODALS | AUTH MODALS | AUTH MODALS | AUTH MODALS | AUTH MODALS | AUTH MODALS | -->
+<!-- AUTH MODALS | AUTH MODALS | AUTH MODALS | AUTH MODALS | AUTH MODALS | AUTH MODALS | -->
+<!-- AUTH MODALS | AUTH MODALS | AUTH MODALS | AUTH MODALS | AUTH MODALS | AUTH MODALS | -->
+
+    <!-- Sign Up Modal -->
+    <!-- Sign Up Modal -->
+    <div id="sign-up-modal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Create Account</h4>
+          </div>
+
+          <div class="modal-body">
+
+            <form id="sign-up" class="form-inline signed-out-view">
+
+              <div class="form-group">
+                <label for="email">Email address:</label>
+                <input type="email" name="credentials[email]" class="form-control" autofocus required>
+              </div>
+              <br>
+              <div class="form-group">
+                <label for="pwd">Password:</label>
+                <input type="password" name="credentials[password]" class="form-control" required>
+              </div>
+              <br>
+              <div class="form-group">
+                <label for="pwd">Password Confirmation:</label>
+                <input type="password" name="credentials[password_confirmation]" class="form-control" required>
+              </div>
+              <br>
+              <div class="modal-footer">
+                <button type="submit" class="btn btn-default">Create</button>
+              </div>
+
+            </form>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Sign In Modal -->
+    <!-- Sign In Modal -->
+    <div id="sign-in-modal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Login</h4>
+          </div>
+
+          <div class="modal-body">
+
+            <form id="sign-in" class="form-inline signed-out-view">
+
+              <div class="form-group">
+                <label for="email">Email Address:</label>
+                <input type="email" name="credentials[email]" class="form-control" autofocus required>
+              </div>
+              <div class="form-group">
+                <label for="pwd">Password:</label>
+                <input type="password" name="credentials[password]" class="form-control" required>
+              </div>
+              <div class="modal-footer">
+                <button type="submit" class="btn btn-default">Sign In</button>
+              </div>
+
+            </form>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Change Password Modal -->
+    <!-- Change Password Modal -->
+    <div id="change-password-modal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Change Password</h4>
+          </div>
+
+          <div class="modal-body">
+
+            <form id="change-password" class="form-inline signed-in-view">
+
+              <div class="form-group">
+                <label for="pwd">Old Password:</label>
+                <input type="password" name="passwords[old]" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <label for="pwd">New Password:</label>
+                <input type="password" name="passwords[new]" class="form-control" required>
+              </div>
+              <div class="modal-footer">
+                <button type="submit" class="btn btn-default">Submit</button>
+              </div>
+
+            </form>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+
+    </form>
+
     </body>
 </html>

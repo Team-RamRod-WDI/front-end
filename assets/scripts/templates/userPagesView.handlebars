@@ -1,0 +1,17 @@
+<div class="col-xs-12">
+  <h2>My Pages</h2>
+</div>
+<div class="container all-pages-view signed-in-view">
+
+{{#each pages as |page|}}
+  <div class="card col-xs-4" style="padding: 20px; height: 200px;">
+    <div class="card-block" style="padding: 10px">
+      <h4 class="card-title page-card-title">{{page.title}}</h4>
+      <h4 class="card-text page-card-description">Description: {{page.description}}</h4>
+      <button data-id="{{page.id}}" class="btn btn-primary view-page-posts-button">View Posts</button>
+    </div>
+  </div>
+{{/each}}
+
+
+</div>
