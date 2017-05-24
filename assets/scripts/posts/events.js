@@ -33,6 +33,7 @@ const onUpdatePost = function (event) {
 const onDeletePost = function (event) {
   event.preventDefault()
   const data = this.dataset.id
+  console.log(data)
   api.deletePost(data)
     .then(ui.deletePostSuccess)
       .then(() => {
@@ -60,10 +61,9 @@ const onShowCreatePostForms = (event) => {
 
 const addHandlers = () => {
   $(document).on('submit', '#create-new-post-forms-submit', onCreatePost)
-
   $('#get-posts').on('click', onGetPosts)
   $('#update-post').on('submit', onUpdatePost)
-  $(document).on('click', '.delete-post', onDeletePost)
+  $(document).on('click', '.delete-post-button', onDeletePost)
   $(document).on('click', '.edit-post', onUpdatePost)
   $(document).on('click', '.view-create-page-fields-button', onShowCreatePostForms)
 }
