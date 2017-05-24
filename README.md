@@ -1,6 +1,9 @@
 # About "Ramrod CMS"
 
-Our team, over the course of three days, built a Content Management System (CMS) that allows visitors to see content on the app without being signed in. A logged in user is able to create their own ‘pages’ and create ‘posts’ on those pages.
+Our team, over the course of three days, built a Content Management System (CMS) that allows visitors to: - See content on the app without being signed in.
+When logged in:
+    - Users are able to create their own ‘pages’ with a title and description, and create ‘posts’ on those pages that have a title and content.
+    - Users are able to manage the content once it's created: Display it, Edit it, Delete it.
 
 Deployed Application - https://team-ramrod-wdi.github.io/front-end/
 Back End Repository - https://github.com/Team-RamRod-WDI/back-end
