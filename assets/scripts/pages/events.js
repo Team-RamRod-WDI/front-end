@@ -14,6 +14,12 @@ const onGetAllPages = (event) => {
     .catch(ui.getAllPagesFailure)
 }
 
+const onLoadAllPages = () => {
+  api.getAllVisitorPages()
+    .then(ui.getAllVisitorPagesSuccess)
+    .catch(ui.getAllVisitorPagesFailure)
+}
+
 const onGetAllUserPages = (event) => {
   event.preventDefault()
   api.getAllUserPages()
@@ -68,5 +74,6 @@ const addHandlers = () => {
 }
 
 module.exports = {
-  addHandlers
+  addHandlers,
+  onLoadAllPages
 }
