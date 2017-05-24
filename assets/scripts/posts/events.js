@@ -42,7 +42,7 @@ const onDeletePost = function (event) {
 }
 
 const addHandlers = () => {
-  $('#create-post').on('submit', onCreatePost)
+  $('#create-new-post-forms-submit').on('submit', onCreatePost)
   $('#get-posts').on('click', onGetPosts)
   $('#update-post').on('submit', onUpdatePost)
   $(document).on('click', '.delete-post', onDeletePost)
