@@ -20,11 +20,12 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 }
 a {transition: .25s all;}
 .card {
-  overflow: hidden;
+  overflow: auto;
   @include BoxShadowHelper(1);
   transition: .25s box-shadow;
   &:focus,
   &:hover {@include BoxShadowHelper(2);}
+  min-width: 200px;
 }
 .card-inverse .card-img-overlay {
   background-color: rgba(#333,.85);

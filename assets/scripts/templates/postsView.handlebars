@@ -1,11 +1,12 @@
+<div class="post-div">
 <div class="col-xs-12">
-  <h2>Pages</h2>
+  <h2>Page Posts</h2>
   <button class="btn btn-success view-create-page-fields-button">Create New Post</button>
 </div>
 
 <div class="container all-pages-posts-view signed-in-view">
 {{#each posts as |post|}}
-  <div class="card col-xs-3" style="padding: 20px; height: 200px;">
+  <div class="card col-xs-3" style="margin: 20px; padding: 20px;">
     <div class="card-block" style="padding: 10px">
       <h4 class="card-title page-card-title">{{post.title}}</h4>
       <h4 class="card-text page-card-description">Description: {{post.description}}</h4>
@@ -17,4 +18,5 @@
     </div>
   </div>
 {{/each}}
+</div>
 </div>
