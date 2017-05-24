@@ -6,6 +6,7 @@ const api = require('./api')
 const ui = require('./ui.js')
 
 const createPageFieldsView = require('../templates/createPageFields.handlebars')
+const updatePageFieldsView = require('../templates/updatePageFields.handlebars')
 
 const onGetAllPages = (event) => {
   event.preventDefault()
@@ -40,11 +41,32 @@ const onNewUserPage = (event) => {
     .catch(ui.newUserPageFailure)
 }
 
+const onUpdatePage = function (event) {
+  event.preventDefault()
+  const data = getFormFields(event.target)
+  console.log(data)
+  api.updateUserPage(data)
+    .then(ui.updatePageSuccess)
+    .catch(ui.updatePageFailure)
+}
+
 const onShowCreatePageForms = (event) => {
   event.preventDefault()
   const createPageFieldsHTML = createPageFieldsView()
   $('#app').empty()
   $('#app').append(createPageFieldsHTML)
+}
+
+const onShowUpdatePageForm = function (event) {
+  const data = this.dataset.id
+  console.log('data is ', data)
+  event.preventDefault()
+  const updatePageFieldsHTML = updatePageFieldsView()
+  $('#app').empty()
+  $('#app').append(updatePageFieldsHTML)
+  $('#page-id-input').attr('value', data)
+  // $('#edit-post-title-input').val(currentPostId.title)
+  // $('#edit-post-content-input').val(currentPostId.content)
 }
 // GO HOME | GO HOME | GO HOME | GO HOME | GO HOME |
 // const onGoHome = (event) => {
@@ -70,7 +92,8 @@ const addHandlers = () => {
   $('#my-pages-button').on('click', onGetAllUserPages)
   $('#show-create-page-forms').on('click', onShowCreatePageForms)
   $(document).on('submit', '#create-new-page-forms-submit', onNewUserPage)
-  // $('#go-home-button').on('click', onGoHome)
+  $(document).on('click', '.update-page-button', onShowUpdatePageForm)
+  $(document).on('submit', '#update-new-page-forms-submit', onUpdatePage)
 }
 
 module.exports = {
