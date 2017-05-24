@@ -30,6 +30,7 @@ const signInSuccess = (data) => {
 }
 
 const signInFailure = () => {
+  $('.modal-title').html('Error signing in')
 }
 
 const changePasswordSuccess = (response) => {

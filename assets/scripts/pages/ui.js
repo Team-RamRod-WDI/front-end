@@ -102,7 +102,7 @@ const getAllUserPagesSuccess = (data) => {
   console.log(store.userPages)
   // console.log(data)
   layout.loadUserPages()
-  $('.destroy-page-button').on('click', onDeleteUserPage)
+  $('.delete-page-button').on('click', onDeleteUserPage)
   $(document).on('click', '.view-page-posts-button', onGetPagePosts)
   // refreshUserPagesList()
 }
@@ -134,7 +134,7 @@ const refreshUserPagesList = (data) => {
   $('.content').empty()
   $('.content').append(showUserPagesHtml)
   // $('.update-page-button').on('click', onUpdateUserPage)
-  $('.destroy-page-button').on('click', onDeleteUserPage)
+  $('.delete-page-button').on('click', onDeleteUserPage)
 }
 
 const refreshPagesList = (data) => {
@@ -142,7 +142,7 @@ const refreshPagesList = (data) => {
   $('.content').empty()
   $('.content').append(showPagesHtml)
   // $('.update-page-button').on('click', onUpdateUserPage)
-  $('.destroy-page-button').on('click', onDeleteUserPage)
+  $('.delete-page-button').on('click', onDeleteUserPage)
 }
 
 const onDeleteUserPage = (event) => {
