@@ -16,6 +16,8 @@ const signInSuccess = (data) => {
   console.log(data)
   $('#get-pages').css({'display': 'block'})
   $('#get-posts').css({'display': 'block'})
+  $('.signed-in-view').show()
+  $('.signed-out-view').hide()
 }
 
 const signInFailure = () => {
