@@ -1,7 +1,7 @@
 const store = require('./store.js')
 
 const loadPages = (response) => {
-  const pageTemplate = require('./templates/get-pages.handlebars')
+  const pageTemplate = require('./templates/allPagesView.handlebars')
   const content = pageTemplate({ pages: response.pages })
   $('#app').html(content)
 }
