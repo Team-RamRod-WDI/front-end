@@ -1,7 +1,7 @@
 'use strict'
 
 const layout = require('../layout.js')
-
+const store = require('../store.js')
 const createPostSuccess = (response) => {
   console.log('created post and response is:', response)
 }
@@ -10,10 +10,25 @@ const createPostFailure = (error) => {
   console.error(error)
 }
 
-const getPostsSuccess = (response) => {
-  console.log('gets post and response is:', response)
-  layout.loadPagePosts(response)
+const getPostsSuccess = (data) => {
+  console.log('gets post and response is:', data)
+  store.posts = data.posts
+  console.log('store.posts is: ', store.posts)
+  const currentPagePosts = store.posts.filter((post) => {
+    return store.currentPageId === post._page
+  })
+  store.currentPagePosts = currentPagePosts
+  console.log('store.currentPagePosts is: ', store.currentPagePosts)
+  console.log('currentPagePosts is: ', currentPagePosts)
+
+  layout.loadPagePosts()
 }
+
+//
+// store.pages = data.pages
+// store.userPages = data.pages.filter((page) => {
+//   return store.user.id === page._owner
+// })
 
 const getPostsFailure = (error) => {
   console.error(error)

@@ -14,8 +14,8 @@ const loadUserPages = () => {
 }
 
 const loadPagePosts = (response) => {
-  const pageTemplate = require('./templates/get-posts.handlebars')
-  const content = pageTemplate({ posts: response.posts })
+  const pagePostsTemplate = require('./templates/postsView.handlebars')
+  const content = pagePostsTemplate({ posts: store.currentPagePosts })
   $('#app').html(content)
 }
 
