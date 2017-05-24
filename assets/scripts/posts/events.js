@@ -28,7 +28,7 @@ const onUpdatePost = function (event) {
   const data = getFormFields(event.target)
   console.log(data)
   api.updatePost(data)
-    .then(ui.updatePostSucess)
+    .then(ui.updatePostSuccess)
     .catch(ui.updatePostFailure)
 }
 
