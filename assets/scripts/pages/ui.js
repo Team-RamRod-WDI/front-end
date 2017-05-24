@@ -13,6 +13,19 @@ const postsUi = require('../posts/ui.js')
 const getAllPagesSuccess = (response) => {
   console.log(response)
   layout.loadPages(response)
+  $(document).on('click', '.view-page-posts-button', onGetPagePosts)
+}
+
+const getAllVisitorPagesSuccess = (response) => {
+  console.log(response)
+  layout.loadVisitorPages(response)
+  $(document).on('click', '.view-visitor-page-posts-button', () => {
+    $('#sign-in-modal').modal('show')
+  })
+}
+
+const getAllVisitorPagesFailure = (error) => {
+  console.error(error)
 }
 
 const getAllPagesFailure = (error) => {
@@ -169,5 +182,8 @@ module.exports = {
   newUserPageFailure,
   getAllUserPagesSuccess,
   getAllUserPagesFailure,
-  refreshUserPagesList
+  refreshUserPagesList,
+  getAllVisitorPagesSuccess,
+  getAllVisitorPagesFailure,
+  onGetPagePosts
 }

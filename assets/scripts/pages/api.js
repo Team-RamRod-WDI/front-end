@@ -13,6 +13,13 @@ const getAllPages = () => {
   })
 }
 
+const getAllVisitorPages = () => {
+  return $.ajax({
+    url: config.apiOrigin + '/pages/',
+    method: 'GET'
+  })
+}
+
 const newUserPage = (data) => {
   return $.ajax({
     method: 'POST',
@@ -72,5 +79,6 @@ module.exports = {
   getAllUserPages,
   getSingleUserPage,
   deleteUserPage,
-  updateUserPage
+  updateUserPage,
+  getAllVisitorPages
 }
