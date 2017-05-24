@@ -6,6 +6,12 @@ const loadPages = (response) => {
   $('#app').html(content)
 }
 
+const loadVisitorPages = (response) => {
+  const pageTemplate = require('./templates/allVisitorPagesView.handlebars')
+  const content = pageTemplate({ pages: response.pages })
+  $('#app').html(content)
+}
+
 const loadUserPages = () => {
   const userPageTemplate = require('./templates/userPagesView.handlebars')
   const content = userPageTemplate({ pages: store.userPages })
@@ -22,5 +28,6 @@ const loadPagePosts = (response) => {
 module.exports = {
   loadPages,
   loadPagePosts,
-  loadUserPages
+  loadUserPages,
+  loadVisitorPages
 }

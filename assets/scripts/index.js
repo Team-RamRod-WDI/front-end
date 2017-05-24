@@ -13,7 +13,7 @@ $('.signed-out-view').show()
 $(() => {
   setAPIOrigin(location, config)
   authEvents.addHandlers()
-
+  pageEvents.onLoadAllPages()
   pageEvents.addHandlers()
   postEvents.addHandlers()
 })

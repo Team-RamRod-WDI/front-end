@@ -2,6 +2,8 @@
 
 const store = require('../store.js')
 const layout = require('../layout.js')
+const pagesApi = require('../pages/api.js')
+const ui = require('../pages/ui.js')
 
 const signUpSuccess = (data) => {
   console.log(data)
@@ -19,6 +21,11 @@ const signInSuccess = (data) => {
   $('.signed-in-view').show()
   $('.signed-out-view').hide()
   $('#sign-in-modal').modal('hide')
+  pagesApi.getAllPages()
+    .then(layout.loadPages)
+    .then(() => {
+      ui.getAllUserPagesSuccess
+    })
   // $('#get-posts').css({'display': 'block'})
 }
 
