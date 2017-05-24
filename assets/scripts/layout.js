@@ -13,14 +13,14 @@ const loadUserPages = () => {
   $('#app').append(content)
 }
 
-const loadPosts = (response) => {
-  const pageTemplate = require('./templates/get-posts.handlebars')
-  const content = pageTemplate({ posts: response.posts })
+const loadPagePosts = (response) => {
+  const pagePostsTemplate = require('./templates/postsView.handlebars')
+  const content = pagePostsTemplate({ posts: store.currentPagePosts })
   $('#app').html(content)
 }
 
 module.exports = {
   loadPages,
-  loadPosts,
+  loadPagePosts,
   loadUserPages
 }
