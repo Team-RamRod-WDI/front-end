@@ -11,7 +11,6 @@ const pagesUi = require('../pages/ui.js')
 const onCreatePost = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
-  console.log('post object is: ', data)
   api.createPost(data)
     .then(ui.createPostSuccess)
     .catch(ui.createPostFailure)
@@ -28,7 +27,6 @@ const onUpdatePost = function (event) {
   console.log('onUpdatePost is RUNNING')
   event.preventDefault()
   const data = getFormFields(event.target)
-  console.log('data from getFormFields is: ', data)
   api.updatePost(data)
     .then(ui.updatePostSuccess)
     .catch(ui.updatePostFailure)
@@ -37,7 +35,6 @@ const onUpdatePost = function (event) {
 const onDeletePost = function (event) {
   event.preventDefault()
   const data = this.dataset.id
-  console.log(data)
   api.deletePost(data)
     .then(ui.deletePostSuccess)
       .catch(ui.deletePostFailure)
@@ -51,7 +48,6 @@ const onShowUpdatePostForm = function (event) {
   $('#app').empty()
   $('#app').append(updatePostFieldsHTML)
   $('#post-id-input').attr('value', data)
-  console.log('currentPageId is: ', store.currentPageId)
   $('#post-parent-page-input-id').val(store.currentPageId)
   // $('#edit-post-title-input').val(currentPostId.title)
   // $('#edit-post-content-input').val(currentPostId.content)
@@ -62,7 +58,6 @@ const onShowCreatePostForms = (event) => {
   const createPostFieldsHTML = createPostFieldsView()
   $('#app').empty()
   $('#app').append(createPostFieldsHTML)
-  console.log('currentPageId is: ', store.currentPageId)
   $('#post-parent-page-input-id').val(store.currentPageId)
 }
 
