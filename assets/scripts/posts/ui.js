@@ -6,6 +6,7 @@ const store = require('../store.js')
 const api = require('./api.js')
 
 const createPostSuccess = (response) => {
+  document.getElementById('create-new-post-forms-submit').reset()
   api.getPosts()
     .then(getPostsSuccess)
     .catch(getPostsFailure)
@@ -13,6 +14,7 @@ const createPostSuccess = (response) => {
 
 const createPostFailure = (error) => {
   console.error(error)
+  document.getElementById('create-new-post-forms-submit').reset()
 }
 
 const getPostsSuccess = (data) => {
@@ -37,6 +39,7 @@ const getPostsFailure = (error) => {
 
 // UPDATE
 const updatePostSuccess = (data) => {
+  document.getElementById('update-new-post-forms-submit').reset()
   api.getPosts()
     .then(getPostsSuccess)
     .catch(getPostsFailure)
@@ -44,8 +47,8 @@ const updatePostSuccess = (data) => {
 
 const updatePostFailure = (error) => {
   console.error(error)
+  document.getElementById('update-new-post-forms-submit').reset()
   $('.update-post-header').text('You cannot update Posts that don\'t belong to you!')
-  $()
 }
 
 // DELETE
