@@ -24,7 +24,6 @@ const onGetPosts = function (event) {
 }
 
 const onUpdatePost = function (event) {
-  console.log('onUpdatePost is RUNNING')
   event.preventDefault()
   const data = getFormFields(event.target)
   api.updatePost(data)
@@ -42,7 +41,6 @@ const onDeletePost = function (event) {
 
 const onShowUpdatePostForm = function (event) {
   const data = this.dataset.id
-  console.log('data from this.dataset.id is: ', data)
   event.preventDefault()
   const updatePostFieldsHTML = updatePostFieldsView()
   $('#app').empty()
