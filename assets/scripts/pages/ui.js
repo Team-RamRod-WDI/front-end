@@ -2,7 +2,6 @@ const layout = require('../layout.js')
 const api = require('./api.js')
 const showPagesTemplate = require('../templates/get-pages.handlebars')
 const store = require('../store.js')
-const getFormFields = require(`../../../lib/get-form-fields`)
 
 const getAllPagesSuccess = (response) => {
   console.log(response)
@@ -29,7 +28,6 @@ const getAllUserPagesSuccess = (data) => {
     return store.user.id === page._owner
   })
   console.log(store.userPages)
-  // console.log(data)
   layout.loadUserPages()
   $('.destroy-page-button').on('click', onDeleteUserPage)
   refreshPagesList()
@@ -39,29 +37,10 @@ const getAllUserPagesFailure = (error) => {
   console.error(error)
 }
 
-// const onUpdateUserPage = (event) => {
-//   event.preventDefault()
-//   const data = getFormFields(event.target)
-//   const updatedPage = $(event.target).attr('data-id')
-//   refreshPagesList()
-//   api.updateUserPage(data, updatedPage)
-//     .then(updateUserPageSuccess)
-//     .catch(updateUserPageFailure)
-//     .then(() => {
-//       api.getAllUserPages()
-//         .then(getAllUserPagesSuccess)
-//         .catch(getAllUserPagesFailure)
-//     })
-// }
-
-// Not sure if we want each page to be updatable when they are indexed,
-// or if we want a button to open a form to update within handlebars
-
 const refreshPagesList = (data) => {
   const showPagesHtml = showPagesTemplate({ pages: store.pagesLists })
   $('.content').empty()
   $('.content').append(showPagesHtml)
-  // $('.update-page-button').on('click', onUpdateUserPage)
   $('.destroy-page-button').on('click', onDeleteUserPage)
 }
 
@@ -78,14 +57,6 @@ const onDeleteUserPage = (event) => {
         .catch(getAllUserPagesFailure)
     })
 }
-
-// const updateUserPageSuccess = (response) => {
-//   console.log(response)
-// }
-//
-// const updateUserPageFailure = (error) => {
-//   console.errer(error)
-// }
 
 const deleteUserPageSuccess = (response) => {
   console.log('page deleted ', response)

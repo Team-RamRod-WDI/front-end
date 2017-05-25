@@ -1,7 +1,6 @@
 'use strict'
 
 const store = require('../store.js')
-const layout = require('../layout.js')
 
 const signUpSuccess = (data) => {
   console.log(data)
@@ -15,7 +14,6 @@ const signInSuccess = (data) => {
   store.user = data.user
   console.log(data)
   $('#get-pages').css({'display': 'block'})
-  // $('#get-posts').css({'display': 'block'})
 }
 
 const signInFailure = () => {
