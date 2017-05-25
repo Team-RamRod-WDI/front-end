@@ -50,7 +50,6 @@ const changePasswordFailure = () => {
 }
 
 const signOutSuccess = () => {
-  console.log('signOutSuccess is RUNNING')
   $('.signed-in-view').hide()
   $('.signed-out-view').show()
   // layout.loadVisitorPages()
