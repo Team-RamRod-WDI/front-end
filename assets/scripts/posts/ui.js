@@ -17,6 +17,7 @@ const userPostsMessage = (message) => {
 
 const createPostSuccess = (response) => {
   userPostsMessage('Post created!')
+  document.getElementById('create-new-post-forms-submit').reset()
   api.getPosts()
     .then(getPostsSuccess)
     .catch(getPostsFailure)
@@ -26,6 +27,7 @@ const createPostFailure = (error) => {
   userPostsMessage('Failed to create post')
 
   console.error(error)
+  document.getElementById('create-new-post-forms-submit').reset()
 }
 
 const getPostsSuccess = (data) => {
@@ -49,7 +51,7 @@ const getPostsFailure = (error) => {
 // UPDATE
 const updatePostSuccess = (data) => {
   userPostsMessage('Post updated!')
-
+  document.getElementById('update-new-post-forms-submit').reset()
   api.getPosts()
     .then(getPostsSuccess)
     .catch(getPostsFailure)
@@ -58,7 +60,8 @@ const updatePostSuccess = (data) => {
 const updatePostFailure = (error) => {
   userPostsMessage('Failed to update post')
   console.error(error)
-  $()
+  document.getElementById('update-new-post-forms-submit').reset()
+  $('.update-post-header').text('You cannot update Posts that don\'t belong to you!')
 }
 
 // DELETE

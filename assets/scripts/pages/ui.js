@@ -21,6 +21,7 @@ const userPagesMessage = (message) => {
 
 const updatePageSuccess = (data) => {
   userPagesMessage('Page updated!')
+  document.getElementById('update-new-page-forms-submit').reset()
   api.getAllUserPages(data)
     .then(getAllUserPagesSuccess)
     .catch(getAllUserPagesFailure)
@@ -31,6 +32,7 @@ const updatePageFailure = (error) => {
   userPagesMessage('Failed to update page!')
 
   console.error(error)
+  document.getElementById('update-new-page-forms-submit').reset()
 }
 
 const getAllPagesSuccess = (response) => {
@@ -62,11 +64,14 @@ const newUserPageSuccess = (response) => {
   userPagesMessage('Created new page')
   layout.loadPages(response)
   // refreshPagesList()
+  refreshPagesList()
+  document.getElementById('create-new-page-forms-submit').reset()
 }
 
 const newUserPageFailure = (error) => {
   userPagesMessage('Failed to create page')
   console.error(error)
+  document.getElementById('create-new-page-forms-submit').reset()
 }
 
 // GET PAGE POSTS | GET PAGE POSTS | GET PAGE POSTS | GET PAGE POSTS | GET PAGE POSTS |
