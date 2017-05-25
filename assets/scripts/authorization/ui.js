@@ -4,6 +4,15 @@ const store = require('../store.js')
 const layout = require('../layout.js')
 const pagesApi = require('../pages/api.js')
 const ui = require('../pages/ui.js')
+const pagesEvents = require('../pages/events.js')
+
+const userMessage = (message) => {
+  $('#user-messages').text(message)
+  $('#user-messages').show()
+  setTimeout(function () {
+    $('#user-messages').hide()
+  }, 2000)
+}
 
 const signUpSuccess = (data) => {
 
@@ -41,7 +50,11 @@ const changePasswordFailure = () => {
 }
 
 const signOutSuccess = () => {
-
+  console.log('signOutSuccess is RUNNING')
+  $('.signed-in-view').hide()
+  $('.signed-out-view').show()
+  // layout.loadVisitorPages()
+  pagesEvents.onLoadAllPages()
 }
 
 const signOutFailure = () => {

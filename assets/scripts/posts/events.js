@@ -6,6 +6,7 @@ const getFormFields = require('../../../lib/get-form-fields')
 const store = require('../store.js')
 const createPostFieldsView = require('../templates/createPostFields.handlebars')
 const updatePostFieldsView = require('../templates/updatePostField.handlebars')
+const pagesUi = require('../pages/ui.js')
 
 const onCreatePost = function (event) {
   event.preventDefault()
@@ -23,6 +24,7 @@ const onGetPosts = function (event) {
 }
 
 const onUpdatePost = function (event) {
+  console.log('onUpdatePost is RUNNING')
   event.preventDefault()
   const data = getFormFields(event.target)
   api.updatePost(data)
@@ -35,16 +37,12 @@ const onDeletePost = function (event) {
   const data = this.dataset.id
   api.deletePost(data)
     .then(ui.deletePostSuccess)
-      .then(() => {
-        api.getPosts()
-        .then(ui.getPostsSuccess)
-        .catch(ui.getPostsFailure)
-      })
       .catch(ui.deletePostFailure)
 }
 
 const onShowUpdatePostForm = function (event) {
   const data = this.dataset.id
+  console.log('data from this.dataset.id is: ', data)
   event.preventDefault()
   const updatePostFieldsHTML = updatePostFieldsView()
   $('#app').empty()
@@ -78,6 +76,7 @@ const addHandlers = () => {
   $(document).on('submit', '#update-new-post-forms-submit', onUpdatePost)
   $(document).on('click', '.edit-post', onUpdatePost)
   $(document).on('click', '.view-create-page-fields-button', onShowCreatePostForms)
+  $(document).on('click', '#cancel-update-post-forms-button', pagesUi.onGetPagePosts)
 }
 
 module.exports = {

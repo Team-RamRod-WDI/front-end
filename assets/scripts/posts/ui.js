@@ -2,7 +2,13 @@
 
 const layout = require('../layout.js')
 const store = require('../store.js')
+
+const api = require('./api.js')
+
 const createPostSuccess = (response) => {
+  api.getPosts()
+    .then(getPostsSuccess)
+    .catch(getPostsFailure)
 }
 
 const createPostFailure = (error) => {
@@ -29,7 +35,15 @@ const getPostsFailure = (error) => {
   console.error(error)
 }
 
+
 const updatePostSucess = (response) => {
+
+// UPDATE
+const updatePostSuccess = (data) => {
+  api.getPosts()
+    .then(getPostsSuccess)
+    .catch(getPostsFailure)
+
 }
 
 const updatePostFailure = (error) => {
@@ -37,7 +51,12 @@ const updatePostFailure = (error) => {
   $()
 }
 
+// DELETE
 const deletePostSuccess = (response) => {
+  api.getPosts()
+    .then(getPostsSuccess)
+    .catch(getPostsFailure)
+
 }
 
 const deletePostFailure = (error) => {
@@ -49,7 +68,7 @@ module.exports = {
   createPostFailure,
   getPostsSuccess,
   getPostsFailure,
-  updatePostSucess,
+  updatePostSuccess,
   updatePostFailure,
   deletePostSuccess,
   deletePostFailure
