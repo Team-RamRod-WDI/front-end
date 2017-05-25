@@ -27,18 +27,10 @@ const onNewUserPage = (event) => {
     .catch(ui.newUserPageFailure)
 }
 
-// GO HOME | GO HOME | GO HOME | GO HOME | GO HOME |
-// const onGoHome = (event) => {
-//   event.preventDefault()
-//   $('#content').empty()
-// }
-
 const addHandlers = () => {
   $('#get-all-pages-button').on('click', onGetAllPages)
   $('#get-all-user-pages-button').on('click', onGetAllUserPages)
   $('#create-new-page-forms-submit').on('submit', onNewUserPage)
-
-  // $('#go-home-button').on('click', onGoHome)
 }
 
 module.exports = {
