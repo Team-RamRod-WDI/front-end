@@ -2,8 +2,14 @@
 
 const layout = require('../layout.js')
 const store = require('../store.js')
+
+const api = require('./api.js')
+
 const createPostSuccess = (response) => {
   console.log('created post and response is:', response)
+  api.getPosts()
+    .then(getPostsSuccess)
+    .catch(getPostsFailure)
 }
 
 const createPostFailure = (error) => {
@@ -11,6 +17,7 @@ const createPostFailure = (error) => {
 }
 
 const getPostsSuccess = (data) => {
+  console.log('getPostsSucess is RUNNING')
   console.log('gets post and response is:', data)
   store.posts = data.posts
   console.log('store.posts is: ', store.posts)
@@ -20,7 +27,6 @@ const getPostsSuccess = (data) => {
   store.currentPagePosts = currentPagePosts
   console.log('store.currentPagePosts is: ', store.currentPagePosts)
   console.log('currentPagePosts is: ', currentPagePosts)
-
   layout.loadPagePosts()
 }
 
@@ -34,16 +40,24 @@ const getPostsFailure = (error) => {
   console.error(error)
 }
 
-const updatePostSucess = (response) => {
-  console.log('updates post and response is:', response)
+// UPDATE
+const updatePostSuccess = (data) => {
+  console.log('updatePostSuccess is RUNNING. Response is:', data)
+  api.getPosts()
+    .then(getPostsSuccess)
+    .catch(getPostsFailure)
 }
 
 const updatePostFailure = (error) => {
   console.error(error)
 }
 
+// DELETE
 const deletePostSuccess = (response) => {
   console.log('deletes post and response is:', response)
+  api.getPosts()
+    .then(getPostsSuccess)
+    .catch(getPostsFailure)
 }
 
 const deletePostFailure = (error) => {
@@ -55,7 +69,7 @@ module.exports = {
   createPostFailure,
   getPostsSuccess,
   getPostsFailure,
-  updatePostSucess,
+  updatePostSuccess,
   updatePostFailure,
   deletePostSuccess,
   deletePostFailure
