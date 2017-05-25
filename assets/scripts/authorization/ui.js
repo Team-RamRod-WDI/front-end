@@ -26,10 +26,6 @@ const signUpFailure = () => {
   document.getElementById('sign-up').reset()
 }
 
-const signUpFailure = () => {
-  document.getElementById('sign-up').reset()
-}
-
 const signInSuccess = (data) => {
   userMessage('You are signed in!')
   store.user = data.user
@@ -57,6 +53,7 @@ const signInFailure = (error) => {
   document.getElementById('sign-up').reset()
   document.getElementById('sign-in').reset()
 }
+}
 
 const changePasswordSuccess = (response) => {
   userMessage('Password Changed!')
@@ -65,11 +62,6 @@ const changePasswordSuccess = (response) => {
 const changePasswordFailure = () => {
   userMessage('Password Change Failed!')
   console.log('change pw', response)
-  document.getElementById('change-password').reset()
-}
-
-const changePasswordFailure = (error) => {
-  console.error(error)
   document.getElementById('change-password').reset()
 }
 
