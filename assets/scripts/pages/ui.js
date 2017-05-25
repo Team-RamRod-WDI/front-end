@@ -11,13 +11,11 @@ const postsApi = require('../posts/api.js')
 const postsUi = require('../posts/ui.js')
 
 const getAllPagesSuccess = (response) => {
-  console.log(response)
   layout.loadPages(response)
   $(document).on('click', '.view-page-posts-button', onGetPagePosts)
 }
 
 const getAllVisitorPagesSuccess = (response) => {
-  console.log(response)
   layout.loadVisitorPages(response)
   $(document).on('click', '.view-visitor-page-posts-button', () => {
     $('#sign-in-modal').modal('show')
@@ -33,7 +31,6 @@ const getAllPagesFailure = (error) => {
 }
 
 const newUserPageSuccess = (response) => {
-  console.log(response)
   layout.loadPages(response)
   refreshPagesList()
 }
@@ -49,9 +46,7 @@ const newUserPageFailure = (error) => {
 const onGetPagePosts = (event) => {
   event.preventDefault()
   const pageId = $(event.target).attr('data-id')
-  console.log('pageId: ', pageId)
   store.currentPageId = pageId
-  console.log('store.currentPageId is: ', store.currentPageId)
   postsApi.getPosts()
     .then(postsUi.getPostsSuccess)
     .catch(postsUi.getPostsFailure)
@@ -99,8 +94,6 @@ const getAllUserPagesSuccess = (data) => {
   store.userPages = data.pages.filter((page) => {
     return store.user.id === page._owner
   })
-  console.log(store.userPages)
-  // console.log(data)
   layout.loadUserPages()
   $('.delete-page-button').on('click', onDeleteUserPage)
   $(document).on('click', '.view-page-posts-button', onGetPagePosts)
@@ -148,7 +141,6 @@ const refreshPagesList = (data) => {
 const onDeleteUserPage = (event) => {
   event.preventDefault()
   const removeUserPage = $(event.target).attr('data-id')
-  console.log(event.target)
   api.deleteUserPage(removeUserPage)
     .then(deleteUserPageSuccess)
     .catch(deleteUserPageFailure)
@@ -159,16 +151,8 @@ const onDeleteUserPage = (event) => {
     })
 }
 
-// const updateUserPageSuccess = (response) => {
-//   console.log(response)
-// }
-//
-// const updateUserPageFailure = (error) => {
-//   console.errer(error)
-// }
-
 const deleteUserPageSuccess = (response) => {
-  console.log('page deleted ', response)
+
 }
 
 const deleteUserPageFailure = (error) => {

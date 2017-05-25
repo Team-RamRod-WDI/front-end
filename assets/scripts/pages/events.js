@@ -44,7 +44,6 @@ const onNewUserPage = (event) => {
 const onUpdatePage = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
-  console.log(data)
   api.updateUserPage(data)
     .then(ui.updatePageSuccess)
     .catch(ui.updatePageFailure)
@@ -59,7 +58,6 @@ const onShowCreatePageForms = (event) => {
 
 const onShowUpdatePageForm = function (event) {
   const data = this.dataset.id
-  console.log('data is ', data)
   event.preventDefault()
   const updatePageFieldsHTML = updatePageFieldsView()
   $('#app').empty()
