@@ -80,5 +80,5 @@ module.exports = {
   getSingleUserPage,
   deleteUserPage,
   updateUserPage,
-  getAllVisitorPages,
+  getAllVisitorPages
 }
