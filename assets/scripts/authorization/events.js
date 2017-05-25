@@ -8,13 +8,17 @@ const pagesUi = require('../pages/ui.js')
 const onSignUp = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
-  api.signUp(data)
+  if (data.credentials.password !== data.credentials.password_confirmation) {
+    $('.modal-title').text('Passwords must match')
+  } else {
+    api.signUp(data)
     .then(() => {
       api.signIn(data)
       .then(ui.signInSuccess)
       .catch(ui.signInFailure)
     })
     .catch(ui.signUpFailure)
+  }
 }
 
 const onSignIn = function (event) {
@@ -47,11 +51,13 @@ const onSignOut = function (event) {
 const onShowSignUpModal = function (event) {
   event.preventDefault()
   $('#sign-up-modal').modal('show')
+  $('.modal-title').text('Create account')
 }
 
 const onShowSignInModal = function (event) {
   event.preventDefault()
   $('#sign-in-modal').modal('show')
+  $('.modal-title').text('Sign in')
 }
 
 const onShowChangePasswordModal = function (event) {
