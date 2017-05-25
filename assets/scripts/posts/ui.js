@@ -35,15 +35,11 @@ const getPostsFailure = (error) => {
   console.error(error)
 }
 
-
-const updatePostSucess = (response) => {
-
 // UPDATE
 const updatePostSuccess = (data) => {
   api.getPosts()
     .then(getPostsSuccess)
     .catch(getPostsFailure)
-
 }
 
 const updatePostFailure = (error) => {
@@ -56,7 +52,6 @@ const deletePostSuccess = (response) => {
   api.getPosts()
     .then(getPostsSuccess)
     .catch(getPostsFailure)
-
 }
 
 const deletePostFailure = (error) => {
@@ -71,5 +66,5 @@ module.exports = {
   updatePostSuccess,
   updatePostFailure,
   deletePostSuccess,
-  deletePostFailure
+  deletePostFailure,
 }
