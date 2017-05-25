@@ -13,6 +13,7 @@ const postsUi = require('../posts/ui.js')
 const updatePageSuccess = (data) => {
   console.log('updatePageSuccess is RUNNING')
   console.log('response data is: ', data)
+  document.getElementById('update-new-page-forms-submit').reset()
   api.getAllUserPages(data)
     .then(getAllUserPagesSuccess)
     .catch(getAllUserPagesFailure)
@@ -21,6 +22,7 @@ const updatePageSuccess = (data) => {
 
 const updatePageFailure = (error) => {
   console.error(error)
+  document.getElementById('update-new-page-forms-submit').reset()
 }
 
 const getAllPagesSuccess = (response) => {
@@ -49,10 +51,12 @@ const newUserPageSuccess = (response) => {
   console.log(response)
   layout.loadPages(response)
   refreshPagesList()
+  document.getElementById('create-new-page-forms-submit').reset()
 }
 
 const newUserPageFailure = (error) => {
   console.error(error)
+  document.getElementById('create-new-page-forms-submit').reset()
 }
 
 // GET PAGE POSTS | GET PAGE POSTS | GET PAGE POSTS | GET PAGE POSTS | GET PAGE POSTS |

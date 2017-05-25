@@ -16,10 +16,11 @@ const userMessage = (message) => {
 
 const signUpSuccess = (data) => {
   console.log(data)
+  document.getElementById('sign-up').reset()
 }
 
 const signUpFailure = () => {
-
+  document.getElementById('sign-up').reset()
 }
 
 const signInSuccess = (data) => {
@@ -30,6 +31,9 @@ const signInSuccess = (data) => {
   $('.signed-in-view').show()
   $('.signed-out-view').hide()
   $('#sign-in-modal').modal('hide')
+  $('#sign-up-modal').modal('hide')
+  document.getElementById('sign-up').reset()
+  document.getElementById('sign-in').reset()
   pagesApi.getAllPages()
     .then(layout.loadPages)
     .then(() => {
@@ -38,28 +42,38 @@ const signInSuccess = (data) => {
   // $('#get-posts').css({'display': 'block'})
 }
 
-const signInFailure = () => {
+const signInFailure = (error) => {
+  console.error(error)
   $('.modal-title').html('Error signing in')
+  document.getElementById('sign-up').reset()
+  document.getElementById('sign-in').reset()
 }
 
 const changePasswordSuccess = (response) => {
-
+  console.log('change pw', response)
+  document.getElementById('change-password').reset()
 }
 
-const changePasswordFailure = () => {
-
+const changePasswordFailure = (error) => {
+  console.error(error)
+  document.getElementById('change-password').reset()
 }
 
 const signOutSuccess = () => {
   console.log('signOutSuccess is RUNNING')
   $('.signed-in-view').hide()
   $('.signed-out-view').show()
+  document.getElementById('sign-up').reset()
+  document.getElementById('sign-in').reset()
+  document.getElementById('change-password').reset()
   // layout.loadVisitorPages()
   pagesEvents.onLoadAllPages()
 }
 
-const signOutFailure = () => {
-
+const signOutFailure = (error) => {
+  console.log(error)
+  document.getElementById('sign-up').reset()
+  document.getElementById('sign-in').reset()
 }
 
 module.exports = {

@@ -7,6 +7,7 @@ const api = require('./api.js')
 
 const createPostSuccess = (response) => {
   console.log('created post and response is:', response)
+  document.getElementById('create-new-post-forms-submit').reset()
   api.getPosts()
     .then(getPostsSuccess)
     .catch(getPostsFailure)
@@ -14,6 +15,7 @@ const createPostSuccess = (response) => {
 
 const createPostFailure = (error) => {
   console.error(error)
+  document.getElementById('create-new-post-forms-submit').reset()
 }
 
 const getPostsSuccess = (data) => {
@@ -43,6 +45,8 @@ const getPostsFailure = (error) => {
 // UPDATE
 const updatePostSuccess = (data) => {
   console.log('updatePostSuccess is RUNNING. Response is:', data)
+  document.getElementById('update-new-post-forms-submit').reset()
+
   api.getPosts()
     .then(getPostsSuccess)
     .catch(getPostsFailure)
@@ -50,6 +54,7 @@ const updatePostSuccess = (data) => {
 
 const updatePostFailure = (error) => {
   console.error(error)
+  document.getElementById('update-new-post-forms-submit').reset()
 }
 
 // DELETE
