@@ -94,6 +94,7 @@ const addHandlers = () => {
   $(document).on('submit', '#create-new-page-forms-submit', onNewUserPage)
   $(document).on('click', '.update-page-button', onShowUpdatePageForm)
   $(document).on('submit', '#update-new-page-forms-submit', onUpdatePage)
+  $(document).on('click', '#cancel-create-page-button', onGetAllUserPages)
 }
 
 module.exports = {
