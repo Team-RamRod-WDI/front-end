@@ -47,21 +47,14 @@ const signInSuccess = (data) => {
 
 const signInFailure = () => {
   userMessage('Failed to sign in!')
-const signInFailure = (error) => {
-  console.error(error)
-  $('.modal-title').html('Error signing in')
-  document.getElementById('sign-up').reset()
-  document.getElementById('sign-in').reset()
-}
 }
 
 const changePasswordSuccess = (response) => {
   userMessage('Password Changed!')
 }
 
-const changePasswordFailure = () => {
+const changePasswordFailure = (response) => {
   userMessage('Password Change Failed!')
-  console.log('change pw', response)
   document.getElementById('change-password').reset()
 }
 
@@ -76,9 +69,9 @@ const signOutSuccess = () => {
 }
 
 const signOutFailure = (error) => {
-  console.log(error)
   document.getElementById('sign-up').reset()
   document.getElementById('sign-in').reset()
+  console.error(error)
 }
 
 module.exports = {
