@@ -11,8 +11,6 @@ const postsApi = require('../posts/api.js')
 const postsUi = require('../posts/ui.js')
 
 const updatePageSuccess = (data) => {
-  console.log('updatePageSuccess is RUNNING')
-  console.log('response data is: ', data)
   api.getAllUserPages(data)
     .then(getAllUserPagesSuccess)
     .catch(getAllUserPagesFailure)
@@ -66,7 +64,6 @@ const onGetPagePosts = (event) => {
 }
 
 const getAllUserPagesSuccess = (data) => {
-  console.log('getAllUserPagesSuccess is RUNNING')
   store.pages = data.pages
   store.userPages = data.pages.filter((page) => {
     return store.user.id === page._owner
