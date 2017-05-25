@@ -1,14 +1,11 @@
-<div class="col-xs-12">
-  <h2>All Pages</h2>
-</div>
-<div class="container all-pages-view signed-in-view">
 
+<div class="container all-pages-view signed-in-view">
 {{#each pages as |page|}}
-  <div class="card col-xs-4" style="padding: 20px; height: 200px; margin: 20px;">
+  <div class="card col-xs-3" style="padding: 20px; height: 200px; margin: 20px;">
     <div class="card-block" style="padding: 10px">
-      <h4 class="card-title page-card-title">{{page.title}}</h4>
-      <h4 class="card-text page-card-description">Description: {{page.description}}</h4>
-      <button data-id="{{page.id}}" class="btn btn-primary view-visitor-page-posts-button">Sign-in to View</button>
+      <h3 class="card-title page-card-title">{{page.title}}</h3>
+      <h5 class="card-text page-card-description">Description: {{page.description}}</h5>
+      <button data-id="{{page.id}}" class="btn btn-info view-visitor-page-posts-button">Sign-in to View</button>
     </div>
   </div>
 {{/each}}

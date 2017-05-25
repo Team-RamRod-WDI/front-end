@@ -2,15 +2,25 @@ const layout = require('../layout.js')
 const api = require('./api.js')
 
 const store = require('../store.js')
-const getFormFields = require('../../../lib/get-form-fields')
-
-const showPagesTemplate = require('../templates/allPagesView.handlebars')
-const showUserPagesTemplate = require('../templates/userPagesView.handlebars')
+// const getFormFields = require('../../../lib/get-form-fields')
+// const showPagesTemplate = require('../templates/allPagesView.handlebars')
+// const showUserPagesTemplate = require('../templates/userPagesView.handlebars')
 
 const postsApi = require('../posts/api.js')
 const postsUi = require('../posts/ui.js')
 
+const userPagesMessage = (message) => {
+  $('.user-messages').text(message)
+  setTimeout(function () {
+    $('.user-messages').show()
+  }, 500)
+  setTimeout(function () {
+    $('.user-messages').hide()
+  }, 3000)
+}
+
 const updatePageSuccess = (data) => {
+  userPagesMessage('Page updated!')
   api.getAllUserPages(data)
     .then(getAllUserPagesSuccess)
     .catch(getAllUserPagesFailure)
@@ -18,11 +28,16 @@ const updatePageSuccess = (data) => {
 }
 
 const updatePageFailure = (error) => {
+  userPagesMessage('Failed to update page!')
+
   console.error(error)
 }
 
 const getAllPagesSuccess = (response) => {
   layout.loadPages(response)
+  userPagesMessage('Page updated!')
+
+  userPagesMessage('Showing all pages!')
   $(document).on('click', '.view-page-posts-button', onGetPagePosts)
 }
 
@@ -34,19 +49,23 @@ const getAllVisitorPagesSuccess = (response) => {
 }
 
 const getAllVisitorPagesFailure = (error) => {
+  userPagesMessage('There was an error finding content')
   console.error(error)
 }
 
 const getAllPagesFailure = (error) => {
+  userPagesMessage('There was an error finding content')
   console.error(error)
 }
 
 const newUserPageSuccess = (response) => {
+  userPagesMessage('Created new page')
   layout.loadPages(response)
-  refreshPagesList()
+  // refreshPagesList()
 }
 
 const newUserPageFailure = (error) => {
+  userPagesMessage('Failed to create page')
   console.error(error)
 }
 
@@ -78,40 +97,6 @@ const getAllUserPagesFailure = (error) => {
   console.error(error)
 }
 
-// const onUpdateUserPage = (event) => {
-//   event.preventDefault()
-//   const data = getFormFields(event.target)
-//   const updatedPage = $(event.target).attr('data-id')
-//   refreshPagesList()
-//   api.updateUserPage(data, updatedPage)
-//     .then(updateUserPageSuccess)
-//     .catch(updateUserPageFailure)
-//     .then(() => {
-//       api.getAllUserPages()
-//         .then(getAllUserPagesSuccess)
-//         .catch(getAllUserPagesFailure)
-//     })
-// }
-
-// Not sure if we want each page to be updatable when they are indexed,
-// or if we want a button to open a form to update within handlebars
-
-const refreshUserPagesList = (data) => {
-  const showUserPagesHtml = showUserPagesTemplate({ pages: store.pagesLists })
-  $('.content').empty()
-  $('.content').append(showUserPagesHtml)
-  // $('.update-page-button').on('click', onUpdateUserPage)
-  $('.delete-page-button').on('click', onDeleteUserPage)
-}
-
-const refreshPagesList = (data) => {
-  const showPagesHtml = showPagesTemplate({ pages: store.pagesLists })
-  $('.content').empty()
-  $('.content').append(showPagesHtml)
-  // $('.update-page-button').on('click', onUpdateUserPage)
-  $('.delete-page-button').on('click', onDeleteUserPage)
-}
-
 const onDeleteUserPage = (event) => {
   event.preventDefault()
   const removeUserPage = $(event.target).attr('data-id')
@@ -126,10 +111,12 @@ const onDeleteUserPage = (event) => {
 }
 
 const deleteUserPageSuccess = (response) => {
-
+  userPagesMessage('Page deleted!')
 }
 
 const deleteUserPageFailure = (error) => {
+  userPagesMessage('Failed to update page')
+
   console.error('failed ', error)
 }
 
@@ -140,7 +127,7 @@ module.exports = {
   newUserPageFailure,
   getAllUserPagesSuccess,
   getAllUserPagesFailure,
-  refreshUserPagesList,
+  // refreshUserPagesList,
   getAllVisitorPagesSuccess,
   getAllVisitorPagesFailure,
   onGetPagePosts,
