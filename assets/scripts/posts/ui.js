@@ -6,7 +6,6 @@ const store = require('../store.js')
 const api = require('./api.js')
 
 const createPostSuccess = (response) => {
-  console.log('created post and response is:', response)
   document.getElementById('create-new-post-forms-submit').reset()
   api.getPosts()
     .then(getPostsSuccess)
@@ -19,16 +18,12 @@ const createPostFailure = (error) => {
 }
 
 const getPostsSuccess = (data) => {
-  console.log('getPostsSucess is RUNNING')
-  console.log('gets post and response is:', data)
   store.posts = data.posts
-  console.log('store.posts is: ', store.posts)
   const currentPagePosts = store.posts.filter((post) => {
     return store.currentPageId === post._page
   })
   store.currentPagePosts = currentPagePosts
-  console.log('store.currentPagePosts is: ', store.currentPagePosts)
-  console.log('currentPagePosts is: ', currentPagePosts)
+
   layout.loadPagePosts()
 }
 
@@ -44,9 +39,7 @@ const getPostsFailure = (error) => {
 
 // UPDATE
 const updatePostSuccess = (data) => {
-  console.log('updatePostSuccess is RUNNING. Response is:', data)
   document.getElementById('update-new-post-forms-submit').reset()
-
   api.getPosts()
     .then(getPostsSuccess)
     .catch(getPostsFailure)
@@ -55,11 +48,11 @@ const updatePostSuccess = (data) => {
 const updatePostFailure = (error) => {
   console.error(error)
   document.getElementById('update-new-post-forms-submit').reset()
+  $('.update-post-header').text('You cannot update Posts that don\'t belong to you!')
 }
 
 // DELETE
 const deletePostSuccess = (response) => {
-  console.log('deletes post and response is:', response)
   api.getPosts()
     .then(getPostsSuccess)
     .catch(getPostsFailure)

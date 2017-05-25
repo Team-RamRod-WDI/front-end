@@ -15,7 +15,6 @@ const userMessage = (message) => {
 }
 
 const signUpSuccess = (data) => {
-  console.log(data)
   document.getElementById('sign-up').reset()
 }
 
@@ -25,7 +24,6 @@ const signUpFailure = () => {
 
 const signInSuccess = (data) => {
   store.user = data.user
-  console.log(data)
   $('#get-pages').css({'display': 'block'})
   $('#get-posts').css({'display': 'block'})
   $('.signed-in-view').show()
@@ -60,7 +58,6 @@ const changePasswordFailure = (error) => {
 }
 
 const signOutSuccess = () => {
-  console.log('signOutSuccess is RUNNING')
   $('.signed-in-view').hide()
   $('.signed-out-view').show()
   document.getElementById('sign-up').reset()
