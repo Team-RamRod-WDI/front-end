@@ -5,8 +5,8 @@ When logged in:
     - Users are able to create their own ‘pages’ with a title and description, and create ‘posts’ on those pages that have a title and content.
     - Users are able to manage the content once it's created: Display it, Edit it, Delete it.
 
-Deployed Application - https://team-ramrod-wdi.github.io/front-end/
-Back End Repository - https://github.com/Team-RamRod-WDI/back-end
+-  Deployed Application - https://team-ramrod-wdi.github.io/front-end/
+-  Back End Repository - https://github.com/Team-RamRod-WDI/back-end
 
 
 ## Technologies Used
@@ -27,12 +27,12 @@ Back End Repository - https://github.com/Team-RamRod-WDI/back-end
 
 ## Wireframes
 
-http://i.imgur.com/6IVw4ZZ.jpg
-http://i.imgur.com/kdgAjlj.jpg
-http://i.imgur.com/s6amc5a.jpg
+-  http://i.imgur.com/6IVw4ZZ.jpg
+-  http://i.imgur.com/kdgAjlj.jpg
+-  http://i.imgur.com/s6amc5a.jpg
 
 ## ERD
-http://imgur.com/a/WWCSE
+-  http://imgur.com/a/WWCSE
 
 ## Approach
 
@@ -54,4 +54,4 @@ With any and all challenges that our team faced, coming together with clear comm
 
 ## Installation Instructions
 
-1.  npm install
+-  npm install
