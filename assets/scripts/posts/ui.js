@@ -66,5 +66,5 @@ module.exports = {
   updatePostSuccess,
   updatePostFailure,
   deletePostSuccess,
-  deletePostFailure,
+  deletePostFailure
 }
