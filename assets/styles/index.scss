@@ -1,14 +1,6 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
-// #get-pages {
-//   display: none;
-// }
-//
-// #get-posts {
-//   display: none;
-// }
-
 // Box shadow helper
 @mixin BoxShadowHelper($level: 1){
   @if $level == 1 {
@@ -26,8 +18,14 @@ a {transition: .25s all;}
   &:focus,
   &:hover {@include BoxShadowHelper(2);}
   min-width: 200px;
+  min-height: 350px;
 }
 .card-inverse .card-img-overlay {
   background-color: rgba(#333,.85);
   border-color: rgba(#333,.85);
+}
+
+.user-messages {
+  font-size: 24px;
+  text-align: center;
 }

@@ -1,4 +1,4 @@
-# About "Ramrod CMS"
+# About "DMR^2 CMS"
 
 Our team, over the course of three days, built a Content Management System (CMS) that allows visitors to: - See content on the app without being signed in.
 When logged in:
