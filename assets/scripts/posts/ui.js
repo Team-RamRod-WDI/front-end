@@ -44,6 +44,7 @@ const updatePostSuccess = (data) => {
 
 const updatePostFailure = (error) => {
   console.error(error)
+  $('.update-post-header').text('You cannot update Posts that don\'t belong to you!')
   $()
 }
 
