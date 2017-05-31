@@ -88,7 +88,6 @@ const onShowUpdatePageForm = function (event) {
 const addHandlers = () => {
   $('#all-pages-button').on('click', onGetAllPages)
   $('#my-pages-button').on('click', onGetAllUserPages)
-  // $('#show-create-page-forms').on('click', onShowCreatePageForms)
   $(document).on('submit', '#create-new-page-forms-submit', onNewUserPage)
   $(document).on('click', '.update-page-button', onShowUpdatePageForm)
   $(document).on('submit', '#update-new-page-forms-submit', onUpdatePage)
