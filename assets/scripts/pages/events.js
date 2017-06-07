@@ -1,7 +1,7 @@
 'use strict'
 
 const getFormFields = require(`../../../lib/get-form-fields`)
-const store = require('../store.js')
+// const store = require('../store.js')
 const api = require('./api')
 const ui = require('./ui.js')
 
@@ -97,5 +97,6 @@ const addHandlers = () => {
 
 module.exports = {
   addHandlers,
-  onLoadAllPages
+  onLoadAllPages,
+  onGetAllPages
 }

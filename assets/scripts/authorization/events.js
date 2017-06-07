@@ -4,6 +4,7 @@ const api = require('./api')
 const ui = require('./ui')
 const getFormFields = require(`../../../lib/get-form-fields`)
 const pagesUi = require('../pages/ui.js')
+const loadPages = require('../pages/events.js')
 
 const onSignUp = function (event) {
   event.preventDefault()
@@ -15,6 +16,11 @@ const onSignUp = function (event) {
     .then(() => {
       api.signIn(data)
       .then(ui.signInSuccess)
+      .then(() => {
+        loadPages.onGetAllPages(event)
+        .then(pagesUi.getAllPagesSuccess)
+        .catch(pagesUi.getAllPagesFailure)
+      })
       .catch(ui.signInFailure)
     })
     .catch(ui.signUpFailure)
@@ -24,9 +30,13 @@ const onSignUp = function (event) {
 const onSignIn = function (event) {
   const data = getFormFields(event.target)
   event.preventDefault()
-  $(document).on('click', '.view-page-posts-button', pagesUi.onGetPagePosts)
   api.signIn(data)
     .then(ui.signInSuccess)
+      .then(() => {
+        loadPages.onGetAllPages(event)
+        .then(pagesUi.getAllPagesSuccess)
+        .catch(pagesUi.getAllPagesFailure)
+      })
     .catch(ui.signInFailure)
 }
 

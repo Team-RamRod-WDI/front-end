@@ -64,7 +64,7 @@ const newUserPageSuccess = (response) => {
   userPagesMessage('Created new page')
   layout.loadPages(response)
   // refreshPagesList()
-  // document.getElementById('create-new-page-forms-submit').reset()
+  document.getElementById('create-new-page-forms-submit').reset()
 }
 
 const newUserPageFailure = (error) => {
@@ -123,7 +123,6 @@ const deleteUserPageFailure = (error) => {
 
   console.error('failed ', error)
 }
-
 
 module.exports = {
   getAllPagesSuccess,
