@@ -1,7 +1,7 @@
 'use strict'
 
 const getFormFields = require(`../../../lib/get-form-fields`)
-// const store = require('../store.js')
+const store = require('../store.js')
 const api = require('./api')
 const ui = require('./ui.js')
 
@@ -34,7 +34,7 @@ const onNewUserPage = (event) => {
   api.newUserPage(data)
     .then(ui.newUserPageSuccess)
     .then(() => {
-      api.getAllUserPages()
+      api.getAllUserPages(store.pages[0]._owner)
         .then(ui.getAllUserPagesSuccess)
         .catch(ui.getAllUserPagesFailure)
     })

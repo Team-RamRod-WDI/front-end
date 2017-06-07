@@ -69,7 +69,7 @@ const updateUserPage = (data) => {
     headers: {
       Authorization: 'Token token=' + store.user.token
     },
-    data: data
+    data
   })
 }
 

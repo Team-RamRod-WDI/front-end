@@ -62,15 +62,15 @@ const getAllPagesFailure = (error) => {
 
 const newUserPageSuccess = (response) => {
   userPagesMessage('Created new page')
-  layout.loadPages(response)
+  // layout.loadPages(response)
   // refreshPagesList()
-  document.getElementById('create-new-page-forms-submit').reset()
+  // document.getElementById('create-new-page-forms-submit').reset()
 }
 
 const newUserPageFailure = (error) => {
   userPagesMessage('Failed to create page')
   console.error(error)
-  document.getElementById('create-new-page-forms-submit').reset()
+  // document.getElementById('create-new-page-forms-submit').reset()
 }
 
 // GET PAGE POSTS | GET PAGE POSTS | GET PAGE POSTS | GET PAGE POSTS | GET PAGE POSTS |

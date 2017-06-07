@@ -31,7 +31,7 @@ const createPostFailure = (error) => {
 }
 
 const getPostsSuccess = (data) => {
-  userPostsMessage('Found some posts!')
+  // userPostsMessage('Found some posts!')
 
   store.posts = data.posts
   const currentPagePosts = store.posts.filter((post) => {
@@ -58,10 +58,9 @@ const updatePostSuccess = (data) => {
 }
 
 const updatePostFailure = (error) => {
-  userPostsMessage('Failed to update post')
+  userPostsMessage('That post does not belong to you!')
   console.error(error)
   document.getElementById('update-new-post-forms-submit').reset()
-  $('.update-post-header').text('You cannot update Posts that don\'t belong to you!')
 }
 
 // DELETE
@@ -74,7 +73,7 @@ const deletePostSuccess = (response) => {
 }
 
 const deletePostFailure = (error) => {
-  userPostsMessage('Failed to delete post!')
+  userPostsMessage('Cannot delete things that are not yours!')
   console.error(error)
 }
 

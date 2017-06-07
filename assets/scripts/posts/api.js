@@ -5,7 +5,7 @@ const store = require('../store')
 
 const createPost = function (data) {
   return $.ajax({
-    url: config.apiOrigin + '/posts',
+    url: config.apiOrigin + '/posts/',
     method: 'POST',
     headers: {
       Authorization: 'Token token=' + store.user.token
