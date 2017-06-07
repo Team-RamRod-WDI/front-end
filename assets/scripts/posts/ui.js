@@ -24,7 +24,7 @@ const createPostSuccess = (response) => {
 }
 
 const createPostFailure = (error) => {
-  userPostsMessage('Failed to create post')
+  userPostsMessage('Page must belong to you, go to "My Pages" up top to create a new page!')
 
   console.error(error)
   document.getElementById('create-new-post-forms-submit').reset()

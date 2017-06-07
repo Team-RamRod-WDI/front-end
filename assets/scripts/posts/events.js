@@ -74,7 +74,7 @@ const addHandlers = () => {
   $(document).on('submit', '#update-new-post-forms-submit', onUpdatePost)
   $(document).on('click', '.edit-post', onUpdatePost)
   $(document).on('click', '.view-create-post-fields-button', onShowCreatePostForms)
-  $(document).on('click', '#cancel-update-post-forms-button', pagesUi.onGetPagePosts)
+  // $(document).on('click', '#cancel-update-post-forms-button', pagesUi.onGetPagePosts)
 }
 
 module.exports = {
