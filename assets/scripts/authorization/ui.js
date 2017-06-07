@@ -46,11 +46,7 @@ const signInSuccess = (data) => {
 
 const signInFailure = () => {
   userMessage('Failed to sign in!')
-<<<<<<< HEAD
   $('#sign-in-modal').modal('hide')
-=======
-  $('#sign-up-modal').modal('hide')
->>>>>>> a02645b79fcfdb30f738542865effe54c8793cf4
 }
 
 const changePasswordSuccess = (response) => {
