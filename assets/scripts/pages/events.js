@@ -28,6 +28,12 @@ const onGetAllUserPages = (event) => {
     .catch(ui.getAllUserPagesFailure)
 }
 
+const onGetAllPagesChain = () => {
+  api.getAllVisitorPages()
+    .then(ui.getAllPagesSuccess)
+    .catch(ui.getAllPagesFailure)
+}
+
 const onNewUserPage = (event) => {
   event.preventDefault()
   const data = getFormFields(event.target)
@@ -98,5 +104,6 @@ const addHandlers = () => {
 module.exports = {
   addHandlers,
   onLoadAllPages,
-  onGetAllPages
+  onGetAllPages,
+  onGetAllPagesChain
 }

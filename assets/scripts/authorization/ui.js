@@ -38,10 +38,9 @@ const signInSuccess = (data) => {
   document.getElementById('sign-up').reset()
   document.getElementById('sign-in').reset()
   pagesApi.getAllPages()
-    .then(layout.loadPages)
-    .then(() => {
-      ui.getAllUserPagesSuccess
-    })
+  .then(layout.loadPages(data))
+  .then(ui.getAllUserPagesSuccess)
+
   // $('#get-posts').css({'display': 'block'})
 }
 
@@ -51,10 +50,12 @@ const signInFailure = () => {
 
 const changePasswordSuccess = (response) => {
   userMessage('Password Changed!')
+  $('#change-password-modal').modal('hide')
 }
 
 const changePasswordFailure = (response) => {
   userMessage('Password Change Failed!')
+  $('#change-password-modal').modal('hide')
   document.getElementById('change-password').reset()
 }
 
