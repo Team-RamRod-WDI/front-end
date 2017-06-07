@@ -31,8 +31,7 @@ const onSignIn = function (event) {
   api.signIn(data)
     .then(ui.signInSuccess)
       .then(() => {
-        console.log(event)
-        loadPages.onGetAllPagesChain()
+        loadPages.onGetAllPages(event)
       })
     .catch(ui.signInFailure)
 }
