@@ -73,6 +73,7 @@ const onShowSignInModal = function (event) {
 const onShowChangePasswordModal = function (event) {
   event.preventDefault()
   $('#change-password-modal').modal('show')
+  $('.modal-title').text('Change password')
 }
 
 const addHandlers = () => {
@@ -80,7 +81,6 @@ const addHandlers = () => {
   $('#sign-in').on('submit', onSignIn)
   $('#change-password').on('submit', onChangePassword)
   $('#sign-out').on('submit', onSignOut)
-
   $('#sign-up-show-modal-button').on('click', onShowSignUpModal)
   $('#sign-in-show-modal-button').on('click', onShowSignInModal)
   $('#change-password-show-modal-button').on('click', onShowChangePasswordModal)
