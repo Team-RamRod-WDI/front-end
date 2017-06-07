@@ -18,8 +18,6 @@ const onSignUp = function (event) {
       .then(ui.signInSuccess)
       .then(() => {
         loadPages.onGetAllPages(event)
-        .then(pagesUi.getAllPagesSuccess)
-        .catch(pagesUi.getAllPagesFailure)
       })
       .catch(ui.signInFailure)
     })
@@ -33,9 +31,8 @@ const onSignIn = function (event) {
   api.signIn(data)
     .then(ui.signInSuccess)
       .then(() => {
-        loadPages.onGetAllPages(event)
-        .then(pagesUi.getAllPagesSuccess)
-        .catch(pagesUi.getAllPagesFailure)
+        console.log(event)
+        loadPages.onGetAllPagesChain()
       })
     .catch(ui.signInFailure)
 }
