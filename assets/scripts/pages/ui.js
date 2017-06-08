@@ -47,6 +47,7 @@ const getAllVisitorPagesSuccess = (response) => {
   layout.loadVisitorPages(response)
   $(document).on('click', '.view-visitor-page-posts-button', () => {
     $('#sign-in-modal').modal('show')
+    $('.modal-title').text('Sign-In')
   })
 }
 
